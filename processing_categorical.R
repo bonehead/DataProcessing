@@ -31,7 +31,9 @@ onehot_encode_categories <- function(X_train,X_test=data.frame())
 			categorical_columns <- c(categorical_columns, colnames(panel)[i])
 		}
 	}
-
+	# Remove any categorical colums you do not wish to encode
+	remove=c("Column_name")
+	categorical_columns=setdiff(categorical_colums,remove)
 	# creating dummy features
 	if (length(categorical_columns) > 0)
 	{
